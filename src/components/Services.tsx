@@ -70,7 +70,6 @@ const Services = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative flex flex-col items-center text-center">
                 <div className="relative mb-6">
-                  <div className="pulse-ring absolute inset-0 opacity-0 group-hover:opacity-100"></div>
                   <div className="absolute inset-0 bg-primary/30 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                   <div className="relative w-20 h-20 bg-gradient-to-br from-primary/30 to-primary/10 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-all duration-500 border border-primary/30">
                     <service.icon className="w-10 h-10 text-primary group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_8px_rgba(205,28,24,0.6)]" strokeWidth={2.5} />
