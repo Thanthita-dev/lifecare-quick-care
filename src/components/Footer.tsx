@@ -20,7 +20,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="hover:text-background transition-colors"
             >
-              Line: @lifecare
+              Line: @Karfair
             </a>
           </div>
           <div className="mt-6 pt-6 border-t border-background/20">
