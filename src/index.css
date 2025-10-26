@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+Clean, professional design with deep red accents for Lifecare Ambulance.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 1 86% 46%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 1 86% 40%;
+    --primary-dark: 1 86% 30%;
+    --primary-darker: 1 86% 20%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 43 84% 58%;
+    --accent-foreground: 0 0% 10%;
+
+    --charcoal: 0 0% 10%;
+    --gold: 43 84% 58%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 18%;
+    --ring: 1 86% 46%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 12%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 1 86% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 1 86% 46%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 1 86% 46%;
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+    --shadow-red: 0 10px 40px -5px rgb(205 28 24 / 0.6);
+    --shadow-red-strong: 0 0 60px rgb(205 28 24 / 0.5), 0 0 100px rgb(205 28 24 / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Kanit', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: hsl(var(--foreground) / 0.85);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-xl);
+  }
+
+  .shadow-premium {
+    box-shadow: var(--shadow-2xl);
+  }
+
+  .shadow-red-glow {
+    box-shadow: var(--shadow-red);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(135deg, rgba(205, 28, 24, 0.7) 0%, rgba(10, 10, 10, 0.9) 100%);
+  }
+
+  /* Motion Elements */
+  .speed-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(205, 28, 24, 0.8), transparent);
+    animation: speed-streak 3s ease-in-out infinite;
+  }
+
+  .glow-line {
+    position: relative;
+  }
+
+  .glow-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(205, 28, 24, 0.4), transparent);
+    animation: speed-streak 2s ease-in-out infinite;
+  }
+
+  .pulse-ring {
+    position: absolute;
+    border: 2px solid rgba(205, 28, 24, 0.5);
+    border-radius: 50%;
+    animation: pulse-expand 2s ease-out infinite;
+  }
+
+  @keyframes pulse-expand {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .futuristic-border {
+    position: relative;
+    border: 1px solid rgba(205, 28, 24, 0.3);
+  }
+
+  .futuristic-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 28, 24, 0.8), transparent);
+    animation: speed-streak 3s ease-in-out infinite;
+  }
+
+  .card-elevated {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-elevated:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .glass-effect {
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(205, 28, 24, 0.2);
+  }
+
+  .glass-card {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border: 1px solid rgba(205, 28, 24, 0.15);
+  }
+
+  .gradient-red {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 50%, hsl(var(--primary-darker)) 100%);
+  }
+
+  .gradient-red-radial {
+    background: radial-gradient(circle at top, hsl(var(--primary) / 0.2) 0%, transparent 70%);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, #c9a757 100%);
+  }
+
+  .gradient-metallic {
+    background: linear-gradient(135deg, #E8E8E8 0%, #C0C0C0 25%, #8A8A8A 50%, #C0C0C0 75%, #E8E8E8 100%);
+  }
+
+  .text-gradient-red {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, #FF4444 50%, hsl(var(--primary-dark)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(205, 28, 24, 0.5));
+  }
+
+  /* Metallic 3D Ambulance Text Effect */
+  .ambulance-3d {
+    background: linear-gradient(135deg, 
+      hsl(0, 0%, 95%) 0%,
+      hsl(0, 86%, 46%) 25%,
+      hsl(0, 0%, 100%) 50%,
+      hsl(0, 86%, 46%) 75%,
+      hsl(0, 0%, 95%) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 
+      0 1px 0 hsl(0, 0%, 85%),
+      0 2px 0 hsl(0, 0%, 80%),
+      0 3px 0 hsl(0, 0%, 75%),
+      0 4px 0 hsl(0, 0%, 70%),
+      0 5px 0 hsl(0, 0%, 65%),
+      0 6px 1px rgba(0,0,0,.1),
+      0 0 5px rgba(205, 28, 24, .3),
+      0 1px 3px rgba(0,0,0,.3),
+      0 3px 5px rgba(0,0,0,.2),
+      0 5px 10px rgba(0,0,0,.25),
+      0 10px 10px rgba(0,0,0,.2),
+      0 20px 20px rgba(0,0,0,.15);
+    filter: drop-shadow(0 0 20px rgba(205, 28, 24, 0.5));
+    position: relative;
+  }
+
+  .ambulance-glow {
+    animation: emergency-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes emergency-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 15px rgba(205, 28, 24, 0.4)) 
+              drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
+    }
+    50% {
+      filter: drop-shadow(0 0 25px rgba(205, 28, 24, 0.7)) 
+              drop-shadow(0 0 40px rgba(255, 255, 255, 0.4));
+    }
+  }
+
+  .heartbeat-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(205, 28, 24, 0.8) 50%, 
+      transparent 100%
+    );
+    animation: heartbeat-pulse 2s ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes heartbeat-pulse {
+    0%, 100% {
+      transform: translateY(-50%) scaleX(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-50%) scaleX(1.05);
+      opacity: 0.8;
+    }
+  }
+}
